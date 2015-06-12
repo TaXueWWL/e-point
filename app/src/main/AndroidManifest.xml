@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.snowalker.wwl.e_point" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name">
+        <!--注册activity_welcome-->
+        <activity
+            android:name=".WelcomeActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--注册activity_login-->
+        <activity android:name=".Activity_login">
+            <intent-filter>
+                <action android:name="com.snowalker.wwl.e_point.ACTION_START"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.snowalker.wwl.e_point.ACTIVITY_LOGIN"/>
+            </intent-filter>
+        </activity>
+
+        <!--注册ActivityCallTheRoll-->
+        <activity android:name=".ActivityCallTheRoll">
+            <intent-filter>
+                <action android:name="com.snowalker.wwl.e_point.ACTION_START"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.snowalker.wwl.e_point.ACTIVITY_CALL_THE_ROLL"/>
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

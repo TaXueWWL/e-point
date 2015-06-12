@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/login_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/login_bg3"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="0">
+
+        <TableRow>
+            <EditText
+                android:layout_marginTop="20dp"
+                android:id="@+id/account"
+                android:layout_height="wrap_content"
+                android:hint=" 手机/邮箱/用户名"
+                android:textSize="21sp"/>
+        </TableRow>
+
+        <TableRow>
+            <EditText
+                android:id="@+id/password"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="密码"
+                android:textSize="21sp"/>
+
+        </TableRow>
+
+        <TableRow>
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="记住密码"
+                android:textSize="18sp"/>
+        </TableRow>
+
+        <TableRow>
+            <Button
+                android:id="@+id/login"
+                android:layout_height="wrap_content"
+                android:layout_span="2"
+                android:text="登   陆"
+                android:layout_marginTop="20dp"
+                android:background="#27F5F2"
+                android:textSize="21sp"/>
+        </TableRow>
+
+    </TableLayout>
+
+</FrameLayout>
