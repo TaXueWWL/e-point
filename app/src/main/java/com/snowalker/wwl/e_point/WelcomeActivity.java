@@ -1,15 +1,16 @@
 package com.snowalker.wwl.e_point;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
 //import android.view.Menu;
 //import android.view.MenuItem;
 
-public class WelcomeActivity extends AppCompatActivity {
+public class WelcomeActivity extends Activity {
+
 
     private ImageView imageView;//定义一个图形并添加监听器
     @Override
@@ -17,6 +18,7 @@ public class WelcomeActivity extends AppCompatActivity {
         setTheme(R.style.Theme_AppCompat_Light_DarkActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
 
         imageView = (ImageView) findViewById(R.id.welcome_stuff);
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -27,8 +29,14 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
-
+    protected void onStart() {
+        super.onStart();
+        MyApplication mApp = (MyApplication)getApplication();
+        if(mApp.isExit()) {
+            finish();
+        }
     }
 
     /*@Override

@@ -12,6 +12,7 @@ import android.widget.Button;
  */
 public class Activity_login extends Activity {
 
+
     private Button login;
 
     @Override
@@ -20,6 +21,7 @@ public class Activity_login extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
+
 
         login = (Button) findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {
@@ -30,5 +32,13 @@ public class Activity_login extends Activity {
                 startActivity(intent);
             }
         });
+    }
+
+    protected void onStart() {
+        super.onStart();
+        MyApplication mApp = (MyApplication)getApplication();
+        if(mApp.isExit()) {
+            finish();
+        }
     }
 }
