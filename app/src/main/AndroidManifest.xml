@@ -35,7 +35,14 @@
                 <category android:name="com.snowalker.wwl.e_point.ACTIVITY_CALL_THE_ROLL"/>
             </intent-filter>
         </activity>
-
+        <!--注册AboutUsActivity-->
+        <activity android:name=".AboutUsActivity">
+            <intent-filter>
+                <action android:name="com.snowalker.wwl.e_point.ACTION_START"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.snowalker.wwl.e_point.ACTIVITY_ABOUT_US"/>
+            </intent-filter>
+        </activity>
 
 
     </application>
