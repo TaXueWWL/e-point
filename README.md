@@ -1,6 +1,54 @@
-﻿# e-point
-e-point教师辅助点名
-、# 6.6日正式开始项目编制
+﻿# 6.6日正式开始项目编制
+
+
+## android studio常用快捷键
+
+ 
+
+快捷键	用途描述
+Alt+回车	导入包,自动修正
+Ctrl+N	查找类
+Ctrl+Shift+N	查找文件
+Ctrl+Alt+L	格式化代码
+Ctrl+Alt+O	优化导入的类和包
+Alt+Insert	生成代码(如get,set方法,构造函数等)
+Ctrl+E
+Alt+Shift+C	最近更改的代码
+Ctrl+R	替换文本
+Ctrl+F	查找文本
+Ctrl+Shift+Space	自动补全代码
+Ctrl+空格	代码提示
+Ctrl+Alt+Space	类名或接口名提示
+Ctrl+P	方法参数提示
+Ctrl+Shift+Alt+N	查找类中的方法或变量
+Alt+Shift+C	对比最近修改的代码
+Shift+F6	重构-重命名
+Ctrl+X	删除行
+Ctrl+U	导航到父类
+Ctrl+O	重写或实现父类
+Ctrl+D	复制行
+Ctrl+/	行注释
+Ctrl+Shift+/	代码段注释
+Ctrl+J	自动代码
+Ctrl+E	最近打开的文件
+Ctrl+H	显示类结构图
+Ctrl+Q	显示注释文档 
+Alt+F1	查找代码所在位置
+Alt+1	快速打开或隐藏工程面板
+Ctrl+Alt+left/right	返回至上次浏览的位置 
+Alt+left/right	切换代码视图
+Alt+Up/Down	在方法间快速移动定位 
+Ctrl+Shift+Up/Down	代码向上/下移动
+F2或Shift+F2	高亮错误或警告快速定位 
+Ctrl+Shift+F7	高亮显示所有该文体，按Esc高亮消失
+Alt+F3	逐个往下查找相同文本
+Ctrl＋E	显示最近编辑的文件列表
+Ctrl＋[或]	可以跳到大括号的开头结尾
+Ctrl＋Shift＋Backspace	可以跳转到上次编辑的地方 
+Ctrl＋F7	当前元素在当前文件中的引用
+Ctrl＋P	可以显示参数信息
+Ctrl＋Alt＋T	可以把代码包在一块内，例如try/catch
+ 
 
 ## welcome界面已完成
 1. 解决首页图片不能全屏拉伸的问题，关于margin和padding的属性问题；
@@ -321,3 +369,122 @@ Intent-Filter的定义属性设置的例子：
     <action android:name="com.netease.push.action.client.METHOD"/>
     <category android:name="android.intent.category.DEFAULT" />
 </intent-filter>
+
+## 关于登陆验证
+【bug-fixed-note】by 段吉贵
+使用SqlLite进行登陆验证，设置三条记录
+admin admin
+user1 user1
+user2 user2
+
+## 关于欢迎界面自动转换
+【bug-fixed-note】by 段吉贵/SnoWalker
+删除ImageView监听器，替换为延时自动切换
+### 使用了Splash窗口类，在styles.xml中定义主题
+> private final int SPLASH_LENGHT = 2000;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.Theme_AppCompat_Light_DarkActionBar);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_welcome);
+
+
+        //imageView = (ImageView) findViewById(R.id.welcome_stuff);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent mainIntent = new Intent(WelcomeActivity.this,Activity_login.class);
+                WelcomeActivity.this.startActivity(mainIntent);
+                WelcomeActivity.this.finish();
+            }
+        },SPLASH_LENGHT);
+
+## aboutUs界面完成
+【bug-fix-note】
+	1. 解决了添加Layout背景颜色的问题
+----------------------------------------------------------------
+		 安卓修改背景色和文字的颜色
+分类： 安卓开发 2013-08-27 09:22 1461人阅读 评论(0) 收藏 举报
+Android颜色 背景
+1,可以在color.xml中先定义颜色例如下面
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<drawable name="c1">#0ffff0</drawable>
+<drawable name="c2">#00FFFF</drawable>
+<drawable name="translucent_background">#7F000000</drawable>
+
+</resources>
+
+再在
+main.xml里面添加背景的颜色android:background="@drawable/c1"
+
+
+[html] view plaincopy在CODE上查看代码片派生到我的代码片
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:layout_width="fill_parent"  
+    android:layout_height="fill_parent"  
+    android:background="@drawable/c1"  
+     >  
+  
+  
+    <TextView  
+        android:id="@+id/textView1"  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:layout_alignParentTop="true"  
+        android:layout_marginTop="121dp"  
+        android:layout_toLeftOf="@+id/editText1"  
+        android:text="账号"  
+        android:textSize="20sp" />  
+  
+  
+    <EditText  
+        android:id="@+id/editText1"  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:layout_alignBaseline="@+id/textView1"  
+        android:layout_alignBottom="@+id/textView1"  
+        android:layout_alignParentRight="true"  
+        android:layout_marginRight="40dp"  
+        android:ems="10" />  
+  
+  
+    <TextView  
+        android:id="@+id/textView2"  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:layout_alignLeft="@+id/textView1"  
+        android:layout_below="@+id/editText1"  
+        android:layout_marginTop="28dp"  
+        android:text="密码"  
+        android:textSize="20sp" />  
+  
+  
+    <EditText  
+        android:id="@+id/editText2"  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:layout_alignBaseline="@+id/textView2"  
+        android:layout_alignBottom="@+id/textView2"  
+        android:layout_alignLeft="@+id/editText1"  
+        android:ems="10"  
+        android:inputType="textPassword" >  
+  
+  
+        <requestFocus />  
+    </EditText>  
+  
+  
+</RelativeLayout>  
+
+
+
+
+
+也可以在oncreat（）里面修改颜色textview = (TextView)findViewById(R.id.textView1);textview.setTextColor(Color.RED);
+ 
+ Resources resources = getBaseContext().getResources();
+  Drawable HippoDrawable = resources.getDrawable(R.drawable.c2);
+  textview1.setBackgroundDrawable(HippoDrawable);
+------------------------------------------------------------
