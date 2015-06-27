@@ -1,0 +1,16 @@
+ Android Studio设置字体 编码格式
+分类： 开发工具 2013-07-18 13:52 5103人阅读 评论(0) 收藏 举报
+Android Studio
+1.中文乱码显示解决：
+Settings -> Editor -> Appearance -> 选择Theme -> 然后勾选上下面的Override default fonts by:在Name中选择一个支持中文字体的字体：比如微软雅黑，serif, sansSerif等，并设定Size，一般为15就可以了，自己可以调，这个设置主要是IDE的菜单标题栏字体和样式等，然后保存即可。
+2.显示行号
+Settings -> Editor -> Appearance -> Show line numbers勾选上
+3.让编辑窗口支持Ctr+鼠标左键缩放修改字体大小
+Settings -> Editor -> Mouse选项栏中勾选“Change font size(Zoom) with Ctrl+Mouse Wheel”
+4.修改主题和字体 大小
+Settings -> Editor -> Colors & Fonts -> Font -> 在“Scheme name”选择一个主题样式并另存为：xx,xx自己起名，font size自己可以设置如15,17等，下面的左栏是可选字体列表，右侧为当前系统编辑器的字体，选择一个字体，并修改字体大小，保存即可。
+5.文件编码
+Settings -> File Encodings -> IDE Encoding / Project Encoding 可以自己选择编码GBK, GB2312或UTF8等，根据自己需要。
+6.Android Studio设置主题 和 不支持中文
+File -->  Settings --> Appearance， 然后右边的 Override default fonts by 打上勾，然后选择一种支持中文
+的字体，如GB213即可
